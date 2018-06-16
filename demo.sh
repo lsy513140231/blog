@@ -13,6 +13,6 @@ else
 	mkdir js
 	cd js
 	touch main.js
-	echo "var string = "Hello World";alert(string);"> main.js
+	echo "var string = \"Hello World\";alert(string);"> main.js
 	exit
 fi
