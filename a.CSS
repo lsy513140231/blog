@@ -1,7 +1,7 @@
 body
 {
-    background-color: black;
-    color: white;
+    background-color: #efefef;
+    color: black;
     margin: 0px;
 }
 
@@ -10,6 +10,8 @@ a
     color: inherit;
     text-decoration: none;
 }
+
+
 
 .clearfix::after
 {
@@ -21,7 +23,9 @@ a
 
 .topNavBar nav>ul
 {
-    list-style: none;margin: 0;padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .topNavBar nav>ul>li
 {
@@ -88,9 +92,72 @@ a
 {
     background-image: Url(./img/rs-cover-2-2-1-1.jpg);
     height: 510px;
-    border: 1xp solid red;
+    background-position: center center;
+    background-size: cover;
+
 }
+
 .topNavBar-inner
 {
     padding: 0px  16px;
+}
+
+.banner .mask
+{
+    height: 510px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.usercard
+{
+    border: 1px solid red;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.usercard .text .welcome
+{
+   background: #E6685A;
+   color: white;
+   padding: 5px 15px;
+   position: relative;
+
+}
+
+.usercard .welcome .triangle
+{   
+    display: block;
+
+    border:10px solid transparent;
+    width: 10px;
+    border-left-color: #E6685A;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.usercard .text
+{
+    float: left;
+    padding-left: 65px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 470px;
+}
+
+.usercard .picture
+{
+    float: left;
+}
+.usercard .pictureandtext
+{
+    padding: 50px;
+}
+.usercard .pictureandtext .text .h1
+{
+    border: 1px solid green;
+    padding-bottom: 34px;
 }
