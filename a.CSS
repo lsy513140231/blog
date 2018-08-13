@@ -156,8 +156,7 @@ a
 {
     padding: 50px;
 }
-.usercard .pictureandtext .text .h1
+.usercard .pictureandtext .text h1
 {
-    border: 1px solid green;
-    padding-bottom: 34px;
+    padding-top: 34px;
 }
