@@ -1,159 +1,178 @@
-body
-{
+body {
     background-color: #efefef;
     color: black;
     margin: 0px;
 }
 
-
-
-a
-{
+a {
     color: inherit;
     text-decoration: none;
 }
 
-*
-{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-ul,ol
-{
+ul,
+ol {
     list-style: none;
 }
 
-hr
-{
+hr {
     height: 0;
     border: none;
     border-top: 1px solid #DEDEDE;
 }
 
-h1,h2,h3,h4,h5,h6
-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
 
-.clearfix::after
-{
-    content:"";
+.clearfix::after {
+    content: "";
     display: block;
     clear: both;
 }
 
+.topNavBar {
+    padding: 20px 0px 20px 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 11;
+    color: #B7B7B7;
+    transition: all, 0.5s;
+}
 
-.topNavBar nav>ul
-{
+.topNavBar.sticky {
+    padding: 10px 0px 10px 0px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: #3d4451;
+    z-index: 11;
+    transition: all, 0.5s;
+}
+
+.loading {
+    z-index: 13;
+}
+
+.topNavBar nav>ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-.topNavBar nav>ul>li
-{
-    float:left;
-    margin-left:17px;
-    margin-right:17px; 
+
+.topNavBar nav>ul>li {
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
 }
-.topNavBar nav>ul>li>a
-{
+
+.topNavBar nav>ul>li>a {
     font-size: 12px;
-    color: #B7B7B7;
+    color: inherit;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     display: block;
+    position: relative;
 }
-.topNavBar nav>ul>li>a:hover
-{
-    border-bottom: 3px solid #e06567;
+
+.topNavBar nav>ul>li>a:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #e06567;
+    animation: menuSlider 0.5s;
 }
-.topNavBar nav
-{
-    float:right;
+
+@keyframes menuSlider {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.topNavBar nav {
+    float: right;
     padding-top: 4px;
     padding-bottom: 4px;
 }
-.topNavBar .logo
-{
-    float:left;
+
+.topNavBar .logo {
+    float: left;
     font-size: 24px;
     font-family: "Arial Black";
-    padding-top: 3px;
-    padding-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-.topNavBar .logo .rs
-{
+
+.topNavBar .logo .rs {
     margin-right: 4px;
-    color:#E6686A;
+    color: #E6686A;
 }
 
-.topNavBar .logo .card
-{
-    color:#9A9DA2;
+.topNavBar .logo .card {
+    color: #9A9DA2;
 }
 
-.topNavBar
-{
-    padding: 20px  0px 20px 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.test {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 3px 0;
 }
 
-.test
-{
-    font-size: 14px; line-height: 24px; padding: 3px 0;
-
-}
-
-.banner
-{
+.banner {
     background-image: Url(./img/rs-cover-2-2-1-1.jpg);
     height: 510px;
     background-position: center center;
     background-size: cover;
-
 }
 
-.topNavBar-inner
-{
-    padding: 0px  16px;
+.topNavBar-inner {
+    padding: 0px 16px;
 }
 
-.banner .mask
-{
+.banner .mask {
     height: 510px;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.usercard
-{
+.usercard {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-.usercard .text .welcome
-{
-   background: #E6685A;
-   color: white;
-   padding: 5px 15px;
-   position: relative;
-
+.usercard .text .welcome {
+    background: #E6685A;
+    color: white;
+    padding: 5px 15px;
+    position: relative;
 }
 
-.usercard .welcome .triangle
-{   
+.usercard .welcome .triangle {
     display: block;
-
-    border:10px solid transparent;
+    border: 10px solid transparent;
     width: 10px;
     border-left-color: #E6685A;
     border-top-width: 0px;
@@ -162,8 +181,7 @@ h1,h2,h3,h4,h5,h6
     top: 100%;
 }
 
-.usercard .text
-{
+.usercard .text {
     float: left;
     padding-left: 65px;
     padding-top: 3px;
@@ -171,78 +189,73 @@ h1,h2,h3,h4,h5,h6
     width: 470px;
 }
 
-.usercard .picture
-{
+.usercard .picture {
     float: left;
 }
-.usercard .pictureandtext
-{
+
+.usercard .pictureandtext {
     padding: 50px;
 }
-.usercard .pictureandtext .text h1
-{
+
+.usercard .pictureandtext .text h1 {
     padding-top: 32px;
 }
-.usercard .pictureandtext .text p
-{
+
+.usercard .pictureandtext .text p {
     padding-top: 7px;
 }
-.usercard .pictureandtext .text hr
-{
+
+.usercard .pictureandtext .text hr {
     margin: 23px 0px;
 }
+
 .usercard .pictureandtext .text dt,
-.usercard .pictureandtext .text dd
-{
+.usercard .pictureandtext .text dd {
     float: left;
     padding-bottom: 14px;
 }
-.usercard .pictureandtext .text dt
-{
+
+.usercard .pictureandtext .text dt {
     width: 30%;
     font-weight: bold;
 }
-.usercard .pictureandtext .text dd
-{
+
+.usercard .pictureandtext .text dd {
     width: 70%;
-    color:#9da0a7
+    color: #9da0a7
 }
-.usercard .media
-{
+
+.usercard .media {
     text-align: center;
     background-color: #e06567;
-    padding-top:14px;
-    padding-bottom: 14px; 
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
-.usercard .media > a
-{
+
+.usercard .media>a {
     padding: 10px 10px;
     display: inline-block;
     border-radius: 50%;
     margin-left: 10px;
-    margin-right: 10px; 
-    
+    margin-right: 10px;
 }
-.usercard .icon
-{
+
+.usercard .icon {
     width: 40px;
     height: 40px;
-    fill:white;
-    vertical-align:top;
+    fill: white;
+    vertical-align: top;
 }
 
-.usercard .media > a:hover
-{
-background-color: #CF505F;
+.usercard .media>a:hover {
+    background-color: #CF505F;
 }
 
-body main 
-{
+body main {
     margin-top: -340px
 }
 
-body main .downloadResume
-{
+body main .downloadResume {
     font-size: 14px;
     line-height: 16px;
     padding: 21px 55px;
@@ -255,21 +268,17 @@ body main .downloadResume
     color: #3D4451;
     font-weight: bold;
 }
-body main .downloadResume:hover
-{
-    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.2);
+
+body main .downloadResume:hover {
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.2s;
 }
 
-
-
-body main .downloadResume-wrapper
-{
+body main .downloadResume-wrapper {
     text-align: center;
 }
 
-body main .selfIntroduction
-{
+body main .selfIntroduction {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
@@ -279,16 +288,14 @@ body main .selfIntroduction
 }
 
 section.skills,
-section.Protfolio
-{
+section.Protfolio {
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
 }
 
 section.skills>h2,
-section.Protfolio>h2
-{
+section.Protfolio>h2 {
     text-align: center;
     color: #3D4451;
     font-style: 43px;
@@ -296,70 +303,68 @@ section.Protfolio>h2
     font-weight: 600;
     margin-top: 70px;
 }
-section.skills h3
-{
+
+section.skills h3 {
     font-size: 14px;
     line-height: 1.1;
     padding-right: 40px;
 }
-section.skills>ol
-{
+
+section.skills>ol {
     background-color: white;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
     padding: 42px 50px 14px;
     margin-top: 30px;
 }
-section.skills>ol>li
-{
-    float :left;
+
+section.skills>ol>li {
+    float: left;
     width: 48%;
     box-sizing: border-box;
 }
-section.skills>ol>li:nth-child(even)
-{
-    float :right;
+
+section.skills>ol>li:nth-child(even) {
+    float: right;
 }
-section.skills .progressBar
-{
+
+section.skills .progressBar {
     height: 5px;
     background: #FAE1E1;
     border-radius: 3px;
     margin: 10px 0px 40px 0px;
 }
 
-section.skills .progressBar .progress
-{
+section.skills .progressBar .progress {
     height: 100%;
     background: #E6685A;
     width: 50%;
     border-radius: 3px;
 }
-section.Protfolio > nav
-{
+
+section.Protfolio>nav {
     text-align: center;
     display: inline-block;
     vertical-align: top;
     margin-top: 32px;
 }
-section.Protfolio > nav > ol
-{
+
+section.Protfolio>nav>ol {
     margin: 0px;
     display: inline-block;
     vertical-align: top;
 }
-section.Protfolio > nav > ol > li
-{
+
+section.Protfolio>nav>ol>li {
     cursor: pointer;
     float: left;
     margin-left: 40px;
 }
-section.Protfolio > nav > ol > li:nth-child(1)
-{
+
+section.Protfolio>nav>ol>li:nth-child(1) {
     margin-left: 0px;
 }
 
-section.Protfolio > nav > .bar
-{
+section.Protfolio>nav>.bar {
     height: 5px;
     background: white;
     margin-top: 5px;
@@ -367,43 +372,38 @@ section.Protfolio > nav > .bar
     border-radius: 3px;
 }
 
-section.Protfolio
-{
+section.Protfolio {
     text-align: center;
     margin-bottom: 100px;
 }
 
-section.Protfolio > nav .bar-inner
-{
+section.Protfolio>nav .bar-inner {
     transition: all 0.3s;
     height: 100%;
     background: #E6685A;
     border-radius: 3px;
 }
 
-section.Protfolio > nav .bar.state-1 .bar-inner
-{
+section.Protfolio>nav .bar.state-1 .bar-inner {
     width: 16%;
     margin-left: 0px;
 }
-section.Protfolio > nav .bar.state-2 .bar-inner
-{
+
+section.Protfolio>nav .bar.state-2 .bar-inner {
     width: 16%;
     margin-left: 76px;
 }
-section.Protfolio > nav .bar.state-3 .bar-inner
-{
+
+section.Protfolio>nav .bar.state-3 .bar-inner {
     width: 39%;
     margin-left: 154px;
 }
 
-section.Protfolio .works
-{
+section.Protfolio .works {
     position: relative;
 }
 
-section.Protfolio .works > .big,
-section.Protfolio .works > .small
-{
+section.Protfolio .works>.big,
+section.Protfolio .works>.small {
     position: absolute;
 }
