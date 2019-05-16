@@ -46,7 +46,7 @@ h6 {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0);
     z-index: 11;
     color: #B7B7B7;
     transition: all, 0.5s;
@@ -75,6 +75,23 @@ h6 {
     float: left;
     margin-left: 17px;
     margin-right: 17px;
+    position: relative;
+}
+
+.topNavBar .submenu{
+    display: none;
+    color: rgb(63,70,83);
+    background: white;
+    
+    position: absolute;
+    right: 0;
+    top:100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+}
+
+.topNavBar .submenu>li{
+    white-space: nowrap;
+    padding: 6px 10px;
 }
 
 .topNavBar nav>ul>li>a {
@@ -89,7 +106,7 @@ h6 {
     position: relative;
 }
 
-.topNavBar nav>ul>li>a:hover::after {
+.topNavBar nav>ul>li.active>a::after {
     content: "";
     display: block;
     position: absolute;
@@ -98,7 +115,7 @@ h6 {
     height: 3px;
     width: 100%;
     background: #e06567;
-    animation: menuSlider 0.5s;
+    animation: menuSlider 0.3s linear;
 }
 
 @keyframes menuSlider {
@@ -131,6 +148,24 @@ h6 {
 
 .topNavBar .logo .card {
     color: #9A9DA2;
+}
+
+.topNavBar li.active> .submenu{
+    display: inline;
+    animation: submenuSlider 0.3s linear;
+}
+
+@keyframes submenuSlider{
+    0%{
+        background: rgba(255,255,255,0);
+        color: rgba(63,70,83,0);
+        margin-right: 100%;
+    }
+    100%{
+        background: rgba(255,255,255,1);
+        color: rgba(63,70,83,1);
+        margin-right: 0%;
+    }
 }
 
 .test {
@@ -407,3 +442,4 @@ section.Protfolio .works>.big,
 section.Protfolio .works>.small {
     position: absolute;
 }
+

@@ -84,12 +84,25 @@
             <a class="logo" href="#" alt="logo">
                 <span class="rs">RS</span><span class="card">card</span>
             </a>
-            <nav>
+            <nav class="menu">
                 <ul class="clearfix">
-                    <li><a href="#">关于</a></li>
-                    <li><a href="#">技能</a></li>
-                    <li><a href="#">作品</a></li>
-                    <li><a href="#">知乎</a></li>
+                    <li><a href="#siteAbout">关于</a></li>
+                    <li><a href="#siteSkills">技能</a></li>
+                    <li>
+                        <a href="#siteWorks">作品</a>
+                        <ul class="submenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">博客</a>
+                        <ul class="submenu">
+                            <li>博客1</li>
+                            <li>博客2</li>
+                            <li>博客3</li>
+                        </ul></li>
                     <li><a href="#">日历</a></li>
                     <li><a href="#">联系方式</a></li>
                     <li><a href="#">其他</a></li>
@@ -107,7 +120,7 @@
     </div>
 
     <main>
-        <div class="usercard">
+        <div id="siteAbout" class="usercard">
             <div class="pictureandtext clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" width="299" height="347" alt="头像" />
@@ -165,7 +178,7 @@
         </p>
     </main>
 
-    <section class="skills">
+    <section id="siteSkills" class="skills">
         <h2>技 能</h2>
         <ol class="clearfix">
             <li>
@@ -213,7 +226,7 @@
         </ol>
     </section>
 
-    <section class="Protfolio">
+    <section id="siteWorks" class="Protfolio">
         <h2>作 品 集</h2>
         <nav>
             <ol class="clearfix">
@@ -262,11 +275,38 @@
     </section>
 
     <script>
-        setTimeout(function() {
-            sitewelcome.classList.remove("active")
-        }, 2000)
+            sitewelcome.classList.remove("active");
+
         window.onscroll = function(a) {
             (window.scrollY > 0) ? topNavNar.classList.add("sticky"): topNavNar.classList.remove("sticky");
+        }
+ 
+        let liTags = document.querySelectorAll("nav.menu > ul > li");
+        for(let i =0;i<liTags.length;i++){
+            liTags[i].onmouseenter=function(x){
+                x.target.classList.add("active");
+            }
+            
+            liTags[i].onmouseleave=function(x){
+                x.target.classList.remove("active");
+            }
+        }
+
+        let aTags = document.querySelectorAll("nav.menu > ul > li > a");
+        for(let i=0;i<aTags.length;i++){
+            aTags[i].onclick=function(x){
+                x.preventDefault();
+                let a= x.currentTarget;
+                let href = a.getAttribute("href");
+                let element= document.querySelector(href);
+                let topa=element.offsetTop;
+                console.log(top);
+                window.scrollTo(0,top-80);
+                window.scrollTo({ 
+                    top: topa-80, 
+                    behavior: "smooth" 
+                });
+            }
         }
     </script>
 </body>
