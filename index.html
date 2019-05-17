@@ -273,7 +273,7 @@
             }
         </script>
     </section>
-
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
     <script>
             sitewelcome.classList.remove("active");
 
@@ -300,14 +300,55 @@
                 let href = a.getAttribute("href");
                 let element= document.querySelector(href);
                 let topa=element.offsetTop;
-                console.log(top);
-                //window.scrollTo(0,top-80);
-                window.scrollTo({ 
-                    top: topa-80, 
-                    behavior: "smooth" 
-                });
-            }
+
+                // let topa = querySelector(x.currentTarget.getAttribute("href")).offsetTop;
+
+                //简单方法
+                // window.scrollTo({ 
+                //     top: topa, 
+                //     behavior: "smooth" 
+                // });
+
+                //使用计时器来实现滑动
+                // let n = 25;                     //一共动多少次
+                // let duration = 500/n;           //多久动一次
+                // var currentTop=window.scrollY;   //当前的位置
+                // var targetTop = topa-80;        //需要滚动到的位置
+                // let distance = (targetTop - currentTop) /n;
+                // let i = 0;
+                // var id = setInterval(()=>{
+                //     console.log(i===n)
+                //     if(i===n){
+                //         window.clearInterval(id);
+                //     }
+                //     i++;
+                //     window.scrollTo(0, currentTop + distance * i); 
+                // },duration)
+
+        var currentTop= window.scrollY;   //当前的位置
+        var targetTop = topa-80;        //需要滚动到的位置
+        var s = Math.abs( targetTop - currentTop);
+        var t = (s/100)*100;
+        if(t>500){
+            t=500;
         }
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+
+        var coords = { y: currentTop}; // 开始的位置
+        var tween = new TWEEN.Tween(coords) // 创建一个动画名字为 'coords'.
+                .to({ y: targetTop}, t) // 1秒钟内 移动到targetTop
+                .easing(TWEEN.Easing.Quadratic.InOut) // 使用的动画模式.
+                .onUpdate(function() { 
+                    console.log(coords.y);
+                    window.scrollTo(0, coords.y);
+                })
+                .start(); // Start the tween immediately.
+        }
+    }
     </script>
 </body>
 
